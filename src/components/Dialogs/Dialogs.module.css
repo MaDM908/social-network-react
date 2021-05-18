@@ -1,0 +1,48 @@
+.content{
+    height: 2000px;
+    color: green;
+    display: grid;
+    grid-template-columns: 1fr 11fr;
+}
+
+.content a{
+    color: palegreen;
+    text-decoration: none;
+    margin: 10px;
+    display:inline-block;
+    padding: 8px;
+    text-align: center;
+}
+
+
+.content a:hover{
+    color: paleturquoise;
+    background-color: blue;
+}
+
+
+.dialog img{
+    height: 50px;
+    width: 50px;
+    border: black 1px solid;
+    border-radius: 10px;
+}
+.messages div{
+    margin: 20px;
+    height: 50px;
+}
+
+.mi{
+    border: palegreen 1px solid;
+    
+}
+.mi span.from {
+    color: red;
+}
+.messages button{
+    height: 30px;
+    width: 50px;
+}
+.messages textarea{
+    width: 450px;
+}

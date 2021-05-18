@@ -1,0 +1,24 @@
+.content{
+    width: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    color: burlywood;
+    height: 2000px;  
+}
+.content button{
+    width: 100px;
+}
+.content form Input{
+    margin: 1px;
+}
+.form.error{
+    border: red solid 2px;
+    color: red;
+    padding: 5px
+}
+.title{
+    margin: 1px;
+    color: lawngreen;
+    font-size: large;
+}

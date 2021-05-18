@@ -1,0 +1,37 @@
+.content{
+    color: goldenrod;
+    height: 2000px;
+    width: 85%;
+}
+
+
+
+.user{
+    display: grid;
+    grid-template-columns: 3fr 9fr;
+    padding: 5px;
+    margin: 5px;
+    
+}
+
+.label{
+    display: grid;
+    grid-template-columns: 6fr 6fr;
+    background: darkolivegreen;
+    border: 5px solid blue;
+    padding: 10px;
+}
+
+.location{
+    text-align: right;
+}
+
+.follow button{
+    height: 50px;
+    width: 100px;
+}
+
+.photo{
+    height: 100px;
+    width: 100px;
+}

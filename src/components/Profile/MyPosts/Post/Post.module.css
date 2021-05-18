@@ -1,0 +1,12 @@
+.item img{
+    height: 40px;
+    width: 40px;
+    border: grey 1px solid;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 1px;
+}
+.item {
+    color:greenyellow;
+    padding: 2px;
+}

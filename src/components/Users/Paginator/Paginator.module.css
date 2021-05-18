@@ -1,0 +1,14 @@
+.selectedPage{
+    padding: 3px;
+    font-weight: bold;
+    border: green 1px solid;
+    background-color: lawngreen;
+    color: maroon;
+}
+
+.unselectedPage{
+    padding: 3px;
+    color: greenyellow;
+    cursor: pointer;
+    border: brown 1px solid;
+}

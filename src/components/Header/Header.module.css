@@ -1,0 +1,31 @@
+.item {
+    background-color: rgb(228, 4, 40);
+    height: 65px;
+    border-top: 2px solid;
+    border-right: 2px solid;
+    border-left: 2px solid;
+}
+
+.item img{
+    float: left;
+    height: 63px;
+    width: 75px;
+    border: rgb(228, 4, 40) 1px solid;
+}
+
+.auth{
+    padding-right: 10px;
+    float: right;
+    color: chartreuse;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.auth span{
+    padding: 15px;
+    font-size: 10px;
+}
+.auth img{
+    height: 42px;
+}
+.loader{
+    width: 100px;
+}

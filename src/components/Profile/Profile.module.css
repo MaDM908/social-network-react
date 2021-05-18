@@ -1,0 +1,36 @@
+.content{
+    color: blue;
+    height: 2000px;  
+    width: 85%;
+    padding-left: 215px;
+    padding-top: 15px;
+}
+
+.content span{
+    color: honeydew;
+}
+
+
+.content button{
+    margin-left: 5px;
+}
+
+.form.error{
+    border: red solid 2px;
+    color: red;
+    padding: 5px
+}
+
+.contact{
+    color: green;
+    padding: 2px;
+}
+
+.contact:hover{
+    background: blueviolet;
+    color: cornflowerblue;
+}
+
+.loader{
+    width: 1127px;
+}

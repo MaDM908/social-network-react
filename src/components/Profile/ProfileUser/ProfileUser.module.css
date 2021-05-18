@@ -1,0 +1,20 @@
+.avatar img{
+    display: incline-block;
+    height: 200px;
+    width: 200px;
+    border: skyblue 2px solid;
+    
+}
+.avatar input{
+    display: block;
+    background-color: gray;
+    border-radius: 5px;
+    padding: 10px;
+    display: block;
+    width: 200px;
+}
+
+
+
+
+

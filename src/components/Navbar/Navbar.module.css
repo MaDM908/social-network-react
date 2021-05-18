@@ -1,0 +1,88 @@
+.item  {
+    display: block;
+    background-color: green;
+    border: black 2px solid;
+    float: left;
+    height: 2000px;
+    width: 15%;
+}
+.item div span{
+    color: honeydew;
+    font-size: 20px;
+    padding: 5px;
+    text-align: center;
+    display: block;
+}
+.item a{
+    display: block; 
+    font-size: 30px;
+    margin: 5px;
+    text-decoration: none;
+    color: chocolate;
+}
+.item a:hover{
+    background-color: forestgreen;
+    border: gold 2px solid;
+    color: firebrick;
+}
+.friends{
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 6fr 6fr;
+}
+
+
+.online{
+    font-size: 18px;
+    display: inline;
+    background-color: lawngreen;
+    border: brown 2px solid;
+    border-radius: 10px;
+    color: cornflowerblue;
+    margin: 1px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.online:hover{
+    color: chocolate;
+    background-color: darkcyan;
+}
+.addFriend{
+    display: grid;
+    grid-template-columns: 6fr 6fr;
+}
+
+.addFriend button{
+    display: block;
+    margin: 10px;
+    height: 40px;
+    width: 40px;
+    overflow: hidden;
+  
+    background:
+    url("https://cdn-assets.faireconomy.media/nfs/customavatars/thumbs/medium/avatar370624_1.gif") no-repeat;
+}
+
+
+.addFriend textarea{
+    display: block;
+    margin: 10px;
+    height: 40px;
+    width: 100px;
+}
+
+.offline{
+    font-size: 18px;
+    display: inline;
+    background-color: red;
+    border: brown 2px solid;
+    border-radius: 10px;
+    color: cornflowerblue;
+    margin: 1px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.offline:hover{
+    color: chocolate;
+    background-color: darkcyan;
+}

@@ -1,0 +1,13 @@
+.app-wrapper {
+    background-color: grey;
+    font-family: Arial, Helvetica, sans-serif;
+    width: auto;
+    
+}
+
+.app-wrapper-content {
+    background-color: blue;
+    border: black 2px solid;
+    background-image: url("https://i.pinimg.com/originals/fa/40/5e/fa405e983146d7a786667978befa1f74.jpg");
+
+}
