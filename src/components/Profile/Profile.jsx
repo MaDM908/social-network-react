@@ -16,7 +16,7 @@ const Contacts = (props) => {
     })
 };
 
-const Profile = (props) => {
+const Profile = ({profile, ...props}) => {
     
     const [editMode, setMode] = useState(false);
 
@@ -24,23 +24,20 @@ const Profile = (props) => {
         props.addPost(data.newPostDesc);
     };
     const onSubmit = (data) => {
-        console.log(data);
-
+        try {
         props.editProfile(data)
-        .then((res) => {
-            if(res)
-            setMode(true)
-            if(!res)
-            setMode(false)
-
-        })
+        } catch(e) {
+            alert(e);
+        } finally {
+            setMode(false);
+        }
     };
 
  
     return (
         <div className={p.content}>
             <ProfileUser
-                photo={props.profile.photos.large !== null ? props.profile.photos.large : unknown}
+                photo={profile.photos.large !== null ? profile.photos.large : unknown}
                 savePhoto={props.isOwner ? props.savePhoto : null}
                 updateStatus={props.isOwner ? props.updateStatus : null}
                 isOwner={props.isOwner} />
@@ -52,21 +49,21 @@ const Profile = (props) => {
                     </div>}
 
                     <div>
-                        <b>Name: </b><span>{props.profile.fullName}</span>
+                        <b>Name: </b><span>{profile.fullName}</span>
                     </div>
                     <div>
-                        <b>About me: </b><span>{props.profile.aboutMe}</span>
+                        <b>About me: </b><span>{profile.aboutMe}</span>
                     </div>
                     <div>
                         <div><b>Трудоустроен: </b>
                             {
-                                props.profile.lookingForAJob
+                                profile.lookingForAJob
                                     ?
                                     <div>
                                         <span>Да</span>
                                         <div>
                                             <b>Описание работы: </b>
-                                            <p>{props.profile.lookingForAJobDescription}</p>
+                                            <p>{profile.lookingForAJobDescription}</p>
                                         </div>
                                     </div>
                                     :
@@ -79,14 +76,14 @@ const Profile = (props) => {
                     <div>
                         <b>Контакты:</b>
                         <div>
-                            <Contacts contacts={props.profile.contacts} />
+                            <Contacts contacts={profile.contacts} />
                         </div>
                     </div>
 
 
                 </div>
 
-                : <ProfileDataForm onSubmit={onSubmit} {...props} />
+                : <ProfileDataForm onSubmit={onSubmit} profile={profile} contacts={profile.contacts} {...props} />
             }
             <ProfileStatusHooked status={props.status} isOwner={props.isOwner}
                 updateStatus={props.isOwner ? props.updateStatus : null} />

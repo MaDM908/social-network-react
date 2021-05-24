@@ -3,11 +3,26 @@ import * as axios from 'axios';
 const instance = axios.create({
         withCredentials: true,
         headers: {
-            "API-KEY" : "5bd1aa5f-e4f4-4a73-b64e-a45038a0363e",
-            "Access-Control-Allow-Origin": "*"
+            "API-KEY" : "5bd1aa5f-e4f4-4a73-b64e-a45038a0363e"
         },
         baseURL: `https://social-network.samuraijs.com/api/1.0/`
 });
+
+const newsInstance = axios.create({
+    headers: {
+        "x-api-key": "8f2aa74b1d494bd2aa88deaecb6f29af"
+    },
+    baseURL: "https://newsapi.org/v2/"
+})
+
+export const newsAPI = {
+    getAllNews(keyPhraze) {
+        return newsInstance.get(`everything?q=${keyPhraze}`)
+        .then( response => response );
+    } 
+
+};
+
 
 export const usersAPI = {
     getUsers(PageNumber, PageSize) {

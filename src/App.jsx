@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Anatomy from './components/Anatomy/Anatomy';
+import News from './components/News/News';
 import Nutrition from './components/Nutrition/Nutrition';
 import { BrowserRouter, Route } from 'react-router-dom';
 import NavbarContainer from './components/Navbar/NavbarContainer';
@@ -40,18 +40,25 @@ class App extends Component {
 
         <div className="app-wrapper">
           <HeaderContainer />
-          <NavbarContainer />
-          <div className="app-wrapper-content">
+          
+          <div className="app-wrapper-main">
+            <div>
+              <NavbarContainer />
+            </div>
+          
+            <div className="app-wrapper-content">
 
-            <Route exact path='*'  render ={() => <Redirect to='/Profile' />}/>
-            <Route exact path='/Profile/:userId?' render={() => withSuspenseComponent(ProfileContainer)} />
-            <Route path='/Dialogs' render={() => withSuspenseComponent(DialogsContainer)} />
-            <Route path='/Users' render={() => withSuspenseComponent(UsersContainer)} />
-            <Route path='/Anatomy' component={Anatomy} />
-            <Route path='/Nutrition' component={Nutrition} />
-            <Route exact path='/login' render={() => withSuspenseComponent(Login)}/>
+              <Route exact path='*'  render ={() => <Redirect to='/Profile' />}/>
+              <Route exact path='/Profile/:userId?' render={() => withSuspenseComponent(ProfileContainer)} />
+              <Route path='/Dialogs' render={() => withSuspenseComponent(DialogsContainer)} />
+              <Route path='/Users' render={() => withSuspenseComponent(UsersContainer)} />
+              <Route path='/News' component={News} />
+              <Route path='/Nutrition' component={Nutrition} />
+              <Route exact path='/login' render={() => withSuspenseComponent(Login)}/>
 
+            </div>
           </div>
+          
         </div>
       );
   }

@@ -29,38 +29,15 @@ return <div><form onSubmit={props.handleSubmit}>
 <div>
     <b>Контакты:</b>
     <div>
+        { Object.keys(props.contacts).map(key => 
         <div className={p.contact}>
-            <b>facebook: </b>
-            {createField("", "contacts.facebook", [], Input, "text")}
-        </div> 
-        <div className={p.contact}>
-            <b>website: </b>
-            {createField("", "contacts.website", [], Input, "text")}
-        </div>  
-        <div className={p.contact}>
-            <b>vk: </b>
-            {createField("", "contacts.vk", [], Input, "text")}
-        </div>   
-        <div className={p.contact}>
-            <b>twitter: </b>
-            {createField("", "contacts.twitter", [], Input, "text")}
-        </div>  
-        <div className={p.contact}>
-            <b>instagram: </b>
-            {createField("", "contacts.instagram", [], Input, "text")}
-        </div>  
-        <div className={p.contact}>
-            <b>youtube: </b>
-            {createField("", "contacts.youtube", [], Input, "text")}
-        </div>  
-        <div className={p.contact}>
-            <b>github: </b>
-            {createField("", "contacts.github", [], Input, "text")}
-        </div>  
-        <div className={p.contact}>
-            <b>mainLink: </b>
-            {createField("", "contacts.mainLink", [], Input, "text")}
-        </div>  
+            <b>{key}: </b>
+            {createField(`Enter ${key} url`, `contacts.${key}`, [], Input, "text")}
+            <div>
+                { props.error && <div className={p.form + ' ' + p.error}>{props.error}</div> }
+            </div>
+        </div>)
+        }
     </div>
 </div>
 

@@ -8,7 +8,7 @@ const initialState = {
         {to: "/Profile", name: "Profile", id: "1"},
         {to: "/Dialogs", name: "Dialogs", id: "2"},
         {to: "/Users", name: "Users", id: "3"},
-        {to: "/Anatomy", name: "Anatomy", id: "4"},
+        {to: "/News", name: "News", id: "4"},
         {to: "/Nutrition", name: "Nutrition", id: "5"},
     ], 
     friends: [

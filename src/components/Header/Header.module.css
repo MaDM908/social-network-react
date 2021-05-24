@@ -1,6 +1,7 @@
 .item {
-    background-color: rgb(228, 4, 40);
-    height: 65px;
+    background-image: url(https://www.moreplitki.ru/images/products/19823/main.jpg);
+    background-repeat: no-repeat;
+    height: 85px;
     border-top: 2px solid;
     border-right: 2px solid;
     border-left: 2px solid;
@@ -8,15 +9,15 @@
 
 .item img{
     float: left;
-    height: 63px;
-    width: 75px;
+    height: 85px;
+    width: 85px;
     border: rgb(228, 4, 40) 1px solid;
 }
 
 .auth{
     padding-right: 10px;
     float: right;
-    color: chartreuse;
+    color: royalblue;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .auth span{
@@ -24,7 +25,8 @@
     font-size: 10px;
 }
 .auth img{
-    height: 42px;
+    height: 60px;
+    width: 60px;
 }
 .loader{
     width: 100px;

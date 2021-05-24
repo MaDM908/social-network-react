@@ -157,18 +157,62 @@ export const savePhoto = (photoFile) => async (dispatch) => {
 };
 export const editProfile = (payload) => async (dispatch, getState) => {
     if (payload) {
+
         let res = await profileAPI.editProfile(getState().profilePage.profile.userId, payload);
         
         if(res.data.resultCode === 0) {
+            
             dispatch(setProfileData(payload));
             dispatch(setError(null));
+
         } else {
-            //async есть, нужно разделить ошибку, stopSubmit не всей формы, а отдельных частей indexOf?
-            dispatch(setError(res.data.messages));
-            
-            dispatch(stopSubmit("profileData", { _error: res.data.messages ? res.data.messages[0] : "Something wrong!" }))
-            return Promise.resolve(res.data.messages);
+
+            const contactUrlError = "Invalid url format (Contacts->";
+
+            for(let i = 0; i < res.data.messages.length; i++)
+            {
+                switch(res.data.messages[i]){
+                case contactUrlError + "Facebook)":
+                    dispatch(setError(res.data.messages[i]));
+                    dispatch(stopSubmit("profileData", { "contacts": { "facebook": res.data.messages[i]} }))
+                    break;
+                case contactUrlError + "Website)":
+                    dispatch(setError(res.data.messages[i]));
+                    dispatch(stopSubmit("profileData", { "contacts": { "website": res.data.messages[i]} }))
+                    break;
+                case contactUrlError + "Vk)":
+                    dispatch(setError(res.data.messages[i]));
+                    dispatch(stopSubmit("profileData", { "contacts": { "vk": res.data.messages[i]} }))
+                    break;
+                case contactUrlError + "Twitter)":
+                    dispatch(setError(res.data.messages[i]));
+                    dispatch(stopSubmit("profileData", { "contacts": { "twitter": res.data.messages[i]} }))
+                    break;
+                case contactUrlError + "Instagram)":
+                    dispatch(setError(res.data.messages[i]));
+                    dispatch(stopSubmit("profileData", { "contacts": { "instagram": res.data.messages[i]} }))
+                    break;
+                case contactUrlError + "Youtube)":
+                    dispatch(setError(res.data.messages[i]));
+                    dispatch(stopSubmit("profileData", { "contacts": { "youtube": res.data.messages[i]} }))
+                    break;
+                case contactUrlError + "Github)":
+                    dispatch(setError(res.data.messages[i]));
+                    dispatch(stopSubmit("profileData", { "contacts": { "github": res.data.messages[i]} }))
+                    break;
+                case contactUrlError + "MainLink)":
+                    dispatch(setError(res.data.messages[i]));
+                    dispatch(stopSubmit("profileData", { "contacts": { "mainLink": res.data.messages[i]} }))
+                    break;
+                default:
+                    dispatch(setError(res.data.messages[i]));
+                    dispatch(stopSubmit("profileData", { _error: res.data.messages[i]}));
+                };
+            }
+            return Promise.reject(res.data.messages);
         }
+    } else {
+        return Promise.resolve();
     }
 };
 
@@ -176,4 +220,4 @@ export default profileReducer;
 
 
 
-//Осталось только доработать форму обновления профиля, стилизацию соц сети, и залить на githubPages с hashRouter
+//Осталось только доработать форму обновления профиля, стилизацию соц сети

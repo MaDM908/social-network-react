@@ -1,0 +1,19 @@
+.content{
+    border: cadetblue 5px solid;
+    
+}
+
+.content span, a, img{
+    display: block;
+}
+
+.content img{
+    height:80px;
+    width: 100px;
+}
+
+.article,
+.description {
+    cursor: pointer;
+    border: orange 1px dashed;
+}

@@ -44,22 +44,13 @@ const usersReducer = (state = initialState, action) => {
                 users: [...action.users]
             }
         }
-        case SET_CURRENT_PAGE: {
-            return {
-                ...state,
-                currentPage: action.currentPage
-            }
-        }
+        case SET_CURRENT_PAGE: 
+        case TOOGLE_FETCHING:
         case SET_TOTAL_USERS: {
+
             return {
                 ...state,
-                usersCount: action.usersCount
-            }
-        }
-        case TOOGLE_FETCHING: {
-            return {
-                ...state,
-                isFetching: action.value
+                ...action.payload
             }
         }
         case TOOGLE_FOLLOWING: {
@@ -79,9 +70,9 @@ const usersReducer = (state = initialState, action) => {
 export const followSuccess = (id) => ({ type: FOLLOW, id });
 export const unfollowSuccess = (id) => ({ type: UNFOLLOW, id });
 export const setUsers = (users) => ({ type: SET_USERS, users });
-export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage });
-export const setTotalUsers = (usersCount) => ({ type: SET_TOTAL_USERS, usersCount });
-export const toogleFetching = (value) => ({ type: TOOGLE_FETCHING, value });
+export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, payload: { currentPage } });
+export const setTotalUsers = (usersCount) => ({ type: SET_TOTAL_USERS, payload: { usersCount } });
+export const toogleFetching = (value) => ({ type: TOOGLE_FETCHING, payload: { value } });
 export const toogleFollowing = (isFetching, userId) => ({ type: TOOGLE_FOLLOWING, isFetching, userId });
 
 export const receiveUsers = (currentPage, pageSize) => {

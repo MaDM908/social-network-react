@@ -4,23 +4,22 @@ import s from './Header.module.css';
 import icon from './../../assets/icon.jpg';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import unknown from './../../assets/userUnknown.jpg';
-import cn from 'classnames';
 
 const Header = (props) => {
     if(props.isFetching){
         return (
-        <div className={cn(s.item)}>
+        <div className={s.item}>
             <img src={icon} alt=""/>
-            <div className={cn(s.auth)}>
-                <PreLoader className={cn(s.loader)}/>
+            <div className={s.auth}>
+                <PreLoader className={s.loader}/>
             </div>
         </div>
         );
     } else {
     return (
-        <div className={cn(s.item)}>
+        <div className={s.item}>
             <img src={icon} alt=""/>
-            <div className={cn(s.auth)}>
+            <div className={s.auth}>
                 <div>
                     { props.isAuth
                     ? <div><span>{ props.login }</span><button onClick={props.logoutThunk}>Logout</button></div>
