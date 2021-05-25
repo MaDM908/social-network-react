@@ -12,7 +12,9 @@ const newsReducer = (state = initialState, action) => {
         case SET_NEWS_DONE:
             return {
                 ...state,
-                newsArray: action.payload.newsArray
+                newsArray: [...action.payload.newsArray]
+                
+                
             };
         default:
             return state;
@@ -24,7 +26,7 @@ export const receiveNews = (phraze) => async (dispatch) => {
     let data = await newsAPI.getAllNews(phraze);
     
     if(data.status === 200)
-        debugger
+        
         dispatch(setNews(data.data.articles));
         
         dispatch(stopSubmit("NewSearch"));

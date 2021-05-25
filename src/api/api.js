@@ -17,7 +17,7 @@ const newsInstance = axios.create({
 
 export const newsAPI = {
     getAllNews(keyPhraze) {
-        return newsInstance.get(`everything?q=${keyPhraze}`)
+        return newsInstance.get(`everything?q=${keyPhraze}&pageSize=5`)
         .then( response => response );
     } 
 

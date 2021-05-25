@@ -23,10 +23,11 @@ const News = (props) => {
         props.receiveNews(payload.searchKey);
     }
 
+    
     return (
         <div className={styles.content}>
             <NewSearchReduxForm onSubmit={onSubmit}/>
-            {props.news && <div className={styles.new}>{props.newsArray.map(n => {
+            {props.news && <div className={styles.new}>{props.news.map(n => {
                 return <New key={n.source.id} {...n} />;
             })}</div>}
         </div>
@@ -34,6 +35,7 @@ const News = (props) => {
 };
 
 const mapStateToProps = (state) => {
+    
     return {
         news: state.news.newsArray
     };
