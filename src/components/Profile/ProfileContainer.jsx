@@ -9,24 +9,32 @@ import PreLoader from '../common/Loader/PreLoader';
 
 
 class ProfileContainer extends React.PureComponent {
-    componentDidMount() {
+
+    refreshProfile = () => {
+        
         if (this.props.match.params.userId) {
             let id = this.props.match.params.userId;
             this.props.getProfileData(id);
             this.props.getStatus(id)
         } else {
-            this.props.getProfileData();
-            this.props.getStatus()
+            if (!this.props.authId) {
+                this.props.history.push(`/login`);
+            } else {
+                let id = this.props.authId;
+                this.props.getProfileData(id);
+                this.props.getStatus(id);          
+            }  
         }
+    };
+
+    componentDidMount() {
+       this.refreshProfile();
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevProps.profile !== null) {
-            if (prevProps.profile.userId !== this.props.authId && !this.props.match.params.userId) {
-                this.props.getProfileData();
-                this.props.getStatus()
-            }
-        }
+        if(prevProps.profile !== null)
+            if(prevProps.match.params.userId !== this.props.match.params.userId)
+                this.refreshProfile();
     }
     // //Реализовал, но все таки как-то некрасиво
 
